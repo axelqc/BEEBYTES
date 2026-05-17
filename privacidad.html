@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Política de Privacidad - Adentro de la Colmena Podcast">
+    <title>Política de Privacidad | Adentro de la Colmena</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐝</text></svg>">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===================================
+           Privacy Page – Estilos específicos
+           =================================== */
+
+        /* Banner superior */
+        .privacy-hero {
+            margin-top: 80px;
+            background: linear-gradient(135deg, var(--ibm-blue) 0%, var(--ibm-blue-dark) 100%);
+            color: var(--ibm-white);
+            padding: var(--spacing-2xl) 0 calc(var(--spacing-2xl) + 40px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .privacy-hero::before {
+            content: '🐝';
+            position: absolute;
+            right: 8%;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 10rem;
+            opacity: 0.08;
+            pointer-events: none;
+        }
+
+        .privacy-hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+            position: relative;
+            z-index: 2;
+        }
+
+        .privacy-hero-badge {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: var(--spacing-md);
+            letter-spacing: 0.03em;
+        }
+
+        .privacy-hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.2;
+        }
+
+        .privacy-hero-meta {
+            font-size: 0.95rem;
+            opacity: 0.75;
+            margin-top: var(--spacing-sm);
+        }
+
+        .privacy-hero-wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background: var(--ibm-gray-100);
+            clip-path: polygon(0 50%, 100% 0, 100% 100%, 0 100%);
+        }
+
+        /* Layout principal */
+        .privacy-body {
+            background-color: var(--ibm-gray-100);
+            padding: var(--spacing-xl) 0 var(--spacing-2xl);
+        }
+
+        .privacy-layout {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: var(--spacing-xl);
+            align-items: start;
+        }
+
+        /* Sidebar / TOC */
+        .privacy-sidebar {
+            position: sticky;
+            top: 100px;
+        }
+
+        .privacy-toc {
+            background-color: var(--ibm-white);
+            border-radius: 12px;
+            padding: var(--spacing-lg);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .privacy-toc-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--ibm-gray-70);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: var(--spacing-md);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .privacy-toc ol {
+            list-style: none;
+            counter-reset: toc-counter;
+        }
+
+        .privacy-toc ol li {
+            counter-increment: toc-counter;
+            margin-bottom: 4px;
+        }
+
+        .privacy-toc ol li a {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            font-size: 0.875rem;
+            color: var(--ibm-gray-50);
+            text-decoration: none;
+            padding: 6px 8px;
+            border-radius: 6px;
+            transition: var(--transition-fast);
+            line-height: 1.4;
+        }
+
+        .privacy-toc ol li a::before {
+            content: counter(toc-counter, decimal-leading-zero);
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--honey-yellow);
+            background-color: var(--ibm-black);
+            border-radius: 4px;
+            padding: 1px 5px;
+            flex-shrink: 0;
+        }
+
+        .privacy-toc ol li a:hover {
+            color: var(--ibm-blue);
+            background-color: var(--ibm-gray-100);
+        }
+
+        .privacy-toc ol li a.active {
+            color: var(--ibm-blue);
+            background-color: rgba(15, 98, 254, 0.07);
+            font-weight: 500;
+        }
+
+        /* Contenido principal */
+        .privacy-content {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+
+        .privacy-card {
+            background-color: var(--ibm-white);
+            border-radius: 12px;
+            padding: var(--spacing-xl);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+            scroll-margin-top: 100px;
+        }
+
+        .privacy-card h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--ibm-black);
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 2px solid var(--ibm-gray-90);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .privacy-card h2 .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background: var(--ibm-blue);
+            color: var(--ibm-white);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .privacy-card p {
+            font-size: 0.975rem;
+            color: var(--ibm-gray-50);
+            line-height: 1.8;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .privacy-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .privacy-card ul {
+            list-style: none;
+            padding: 0;
+            margin: var(--spacing-sm) 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .privacy-card ul li {
+            font-size: 0.975rem;
+            color: var(--ibm-gray-50);
+            line-height: 1.7;
+            padding-left: var(--spacing-md);
+            position: relative;
+        }
+
+        .privacy-card ul li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--honey-amber);
+            font-size: 0.85rem;
+        }
+
+        .privacy-card ul li strong {
+            color: var(--ibm-black);
+            font-weight: 600;
+        }
+
+        /* Highlight box */
+        .privacy-highlight {
+            background: linear-gradient(135deg, rgba(15, 98, 254, 0.06) 0%, rgba(15, 98, 254, 0.02) 100%);
+            border-left: 3px solid var(--ibm-blue);
+            border-radius: 0 8px 8px 0;
+            padding: var(--spacing-md) var(--spacing-lg);
+            margin: var(--spacing-md) 0;
+        }
+
+        .privacy-highlight p {
+            font-size: 0.95rem;
+            color: var(--ibm-blue);
+            margin-bottom: 0 !important;
+            font-weight: 500;
+        }
+
+        /* Highlight amarillo */
+        .privacy-highlight-yellow {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.1) 0%, rgba(255, 143, 0, 0.05) 100%);
+            border-left: 3px solid var(--honey-yellow);
+            border-radius: 0 8px 8px 0;
+            padding: var(--spacing-md) var(--spacing-lg);
+            margin: var(--spacing-md) 0;
+        }
+
+        .privacy-highlight-yellow p {
+            font-size: 0.95rem;
+            color: var(--honey-amber);
+            margin-bottom: 0 !important;
+            font-weight: 500;
+        }
+
+        /* Links dentro del contenido */
+        .privacy-card a {
+            color: var(--ibm-blue);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition-fast);
+        }
+
+        .privacy-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Contact info */
+        .privacy-contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+
+        .privacy-contact-item {
+            background-color: var(--ibm-gray-100);
+            border-radius: 8px;
+            padding: var(--spacing-md);
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .privacy-contact-item .contact-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--ibm-gray-70);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .privacy-contact-item .contact-value {
+            font-size: 0.95rem;
+            color: var(--ibm-black);
+            font-weight: 500;
+        }
+
+        .privacy-contact-item .contact-value a {
+            color: var(--ibm-blue);
+        }
+
+        /* Footer de la página de privacidad */
+        .privacy-page-footer {
+            background-color: var(--ibm-white);
+            border-radius: 12px;
+            padding: var(--spacing-lg);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+        }
+
+        .privacy-page-footer p {
+            font-size: 0.875rem;
+            color: var(--ibm-gray-70);
+        }
+
+        .back-to-home {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            background-color: var(--ibm-blue);
+            color: var(--ibm-white);
+            padding: var(--spacing-sm) var(--spacing-lg);
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition-normal);
+        }
+
+        .back-to-home:hover {
+            background-color: var(--ibm-blue-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(15, 98, 254, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .privacy-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .privacy-sidebar {
+                position: static;
+            }
+
+            .privacy-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .privacy-toc {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: var(--spacing-sm);
+                align-items: start;
+            }
+
+            .privacy-toc-title {
+                grid-column: 1 / -1;
+                margin-bottom: var(--spacing-xs);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .privacy-hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .privacy-card {
+                padding: var(--spacing-lg);
+            }
+
+            .privacy-toc {
+                grid-template-columns: 1fr;
+            }
+
+            .privacy-page-footer {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== Header / Nav (idéntico al sitio) ===== -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <span class="bee-icon">🐝</span>
+                <h1>Adentro de la Colmena</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html#inicio">Inicio</a></li>
+                <li><a href="index.html#episodios">Episodios</a></li>
+                <li><a href="index.html#hosts">Hosts</a></li>
+                <li><a href="index.html#suscribirse">Suscribirse</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- ===== Hero Banner ===== -->
+    <section class="privacy-hero">
+        <div class="privacy-hero-content">
+            <span class="privacy-hero-badge">📄 Política de Privacidad</span>
+            <h1>Tu privacidad es parte de la colmena</h1>
+            <p style="opacity:0.9; max-width:600px; line-height:1.7; margin-top: var(--spacing-sm);">
+                Somos transparentes sobre cómo manejamos tu información. Aquí encontrarás todo lo que necesitas saber.
+            </p>
+            <p class="privacy-hero-meta">
+                Fecha de vigencia: 16 de mayo de 2025 &nbsp;·&nbsp; Última actualización: 16 de mayo de 2025 &nbsp;·&nbsp; Aplica a beebytes.qzz.io
+            </p>
+        </div>
+        <div class="privacy-hero-wave"></div>
+    </section>
+
+    <!-- ===== Cuerpo Principal ===== -->
+    <main class="privacy-body">
+        <div class="privacy-layout">
+
+            <!-- Sidebar: Tabla de contenidos -->
+            <aside class="privacy-sidebar">
+                <nav class="privacy-toc" aria-label="Tabla de contenidos">
+                    <p class="privacy-toc-title">🐝 Contenido</p>
+                    <ol>
+                        <li><a href="#s1">Quiénes somos</a></li>
+                        <li><a href="#s2">Información que recopilamos</a></li>
+                        <li><a href="#s3">Cómo usamos tu información</a></li>
+                        <li><a href="#s4">Comunicaciones por email</a></li>
+                        <li><a href="#s5">Compartir tu información</a></li>
+                        <li><a href="#s6">Retención de datos</a></li>
+                        <li><a href="#s7">Tus derechos</a></li>
+                        <li><a href="#s8">Cookies</a></li>
+                        <li><a href="#s9">Cambios a esta política</a></li>
+                        <li><a href="#s10">Contáctanos</a></li>
+                    </ol>
+                </nav>
+            </aside>
+
+            <!-- Contenido de secciones -->
+            <div class="privacy-content">
+
+                <!-- 1. Quiénes somos -->
+                <article class="privacy-card" id="s1">
+                    <h2><span class="section-number">01</span>Quiénes somos</h2>
+                    <p>
+                        BeeByte es una marca de medios tecnológicos B2B y podcast dedicado a la infraestructura de datos moderna, incluyendo bases de datos, pipelines ETL, gobernanza de datos e inteligencia artificial. Producimos contenido educativo para ingenieros de datos, arquitectos de TI y tomadores de decisiones tecnológicas empresariales, principalmente en América Latina.
+                    </p>
+                    <p>
+                        Esta Política de Privacidad explica cómo BeeByte ("nosotros", "nos" o "nuestro") recopila, utiliza y protege la información personal de los visitantes y suscriptores de nuestra plataforma en beebytes.qzz.io, incluyendo el podcast <strong>Adentro de la Colmena</strong>.
+                    </p>
+                </article>
+
+                <!-- 2. Información que recopilamos -->
+                <article class="privacy-card" id="s2">
+                    <h2><span class="section-number">02</span>Información que recopilamos</h2>
+                    <p>Recopilamos las siguientes categorías de datos personales, únicamente cuando tú los proporcionas de manera voluntaria:</p>
+                    <ul>
+                        <li><strong>Datos de contacto</strong> — nombre completo y correo electrónico, recopilados cuando te suscribes a nuestro newsletter o te registras en un webinar o evento.</li>
+                        <li><strong>Información profesional</strong> — cargo, nombre de empresa e industria (opcional), proporcionados a través de formularios de registro para personalizar el contenido relevante.</li>
+                        <li><strong>Datos de uso</strong> — páginas visitadas, tiempo en el sitio, URL de referencia, tipo de navegador y dispositivo; recopilados automáticamente mediante cookies y herramientas de analítica.</li>
+                        <li><strong>Datos de comunicación</strong> — historial de interacción con nuestros emails (aperturas, clics) según lo reportado por nuestro proveedor de correo transaccional.</li>
+                    </ul>
+                    <div class="privacy-highlight-yellow">
+                        <p>🛡️ No recopilamos datos personales sensibles como información financiera, documentos de identidad ni datos de salud.</p>
+                    </div>
+                </article>
+
+                <!-- 3. Cómo usamos tu información -->
+                <article class="privacy-card" id="s3">
+                    <h2><span class="section-number">03</span>Cómo usamos tu información</h2>
+                    <p>Utilizamos la información que recopilamos para los siguientes fines:</p>
+                    <ul>
+                        <li>Entregar el contenido, recursos o materiales descargables que solicitaste.</li>
+                        <li>Enviar correos transaccionales como confirmaciones de registro, recordatorios de webinars y notificaciones de nuevos episodios.</li>
+                        <li>Enviar nuestro newsletter a suscriptores que han optado explícitamente por recibirlo.</li>
+                        <li>Mejorar nuestro sitio web, podcast y contenido basándonos en la analítica de uso.</li>
+                        <li>Cumplir con las obligaciones legales aplicables.</li>
+                    </ul>
+                    <p>
+                        <strong>Nunca venderemos tu información personal a terceros</strong>, ni la usaremos para fines distintos a los mencionados sin tu consentimiento explícito.
+                    </p>
+                </article>
+
+                <!-- 4. Comunicaciones por email -->
+                <article class="privacy-card" id="s4">
+                    <h2><span class="section-number">04</span>Comunicaciones por email</h2>
+                    <div class="privacy-highlight">
+                        <p>✉️ Solo enviamos emails a personas que han optado activamente a través de uno de nuestros formularios de registro o suscripción. No enviamos correo comercial no solicitado.</p>
+                    </div>
+                    <p>Podrías recibir los siguientes tipos de email de nuestra parte:</p>
+                    <ul>
+                        <li><strong>Emails transaccionales</strong> — confirmación de registro a eventos, entrega de recursos y notificaciones relacionadas con tu cuenta. Son necesarios para atender tu solicitud y no pueden ser cancelados mientras mantengas un registro activo.</li>
+                        <li><strong>Newsletter / emails editoriales</strong> — nuevos episodios del podcast, insights tecnológicos y contenido curado. Puedes cancelar tu suscripción en cualquier momento usando el enlace incluido en cada email.</li>
+                    </ul>
+                    <p>
+                        Utilizamos <strong>MailerSend</strong> como proveedor de correo transaccional. Tu nombre y correo electrónico se comparten con MailerSend únicamente para entregar las comunicaciones que has solicitado. La política de privacidad de MailerSend está disponible en <a href="https://www.mailersend.com/legal/privacy-policy" target="_blank" rel="noopener">mailersend.com</a>.
+                    </p>
+                </article>
+
+                <!-- 5. Compartir tu información -->
+                <article class="privacy-card" id="s5">
+                    <h2><span class="section-number">05</span>Cómo compartimos tu información</h2>
+                    <p>No vendemos, rentamos ni comercializamos tu información personal. Podemos compartir tus datos con las siguientes categorías de proveedores de confianza, solo en la medida necesaria para operar nuestra plataforma:</p>
+                    <ul>
+                        <li><strong>Entrega de email</strong> — MailerSend, para enviar correos transaccionales y newsletters.</li>
+                        <li><strong>Analítica</strong> — proveedores de analítica con datos agregados y anonimizados para entender el uso del sitio.</li>
+                        <li><strong>Alojamiento web</strong> — nuestro proveedor de hosting para servir nuestro contenido.</li>
+                    </ul>
+                    <p>Todos los proveedores externos están obligados contractualmente a procesar los datos únicamente según nuestras instrucciones y en cumplimiento de la legislación de privacidad aplicable.</p>
+                </article>
+
+                <!-- 6. Retención de datos -->
+                <article class="privacy-card" id="s6">
+                    <h2><span class="section-number">06</span>Retención de datos</h2>
+                    <p>
+                        Conservamos tus datos personales mientras tu suscripción o registro esté activo, o durante el tiempo necesario para cumplir el propósito por el que fueron recopilados. Puedes solicitar la eliminación de tus datos en cualquier momento contactándonos en la dirección indicada al final de este documento.
+                    </p>
+                    <div class="privacy-highlight">
+                        <p>⏱️ Ante una solicitud válida de eliminación, removeremos tus datos de nuestros sistemas activos en un plazo máximo de 30 días.</p>
+                    </div>
+                </article>
+
+                <!-- 7. Tus derechos -->
+                <article class="privacy-card" id="s7">
+                    <h2><span class="section-number">07</span>Tus derechos</h2>
+                    <p>Dependiendo de tu jurisdicción, podrías contar con los siguientes derechos respecto a tus datos personales:</p>
+                    <ul>
+                        <li><strong>Derecho de acceso</strong> — solicitar conocer qué datos tenemos sobre ti.</li>
+                        <li><strong>Derecho de rectificación</strong> — corregir datos inexactos o incompletos.</li>
+                        <li><strong>Derecho de cancelación</strong> — solicitar la eliminación de tus datos ("derecho al olvido").</li>
+                        <li><strong>Derecho de oposición</strong> — retirar tu consentimiento para comunicaciones de marketing en cualquier momento.</li>
+                        <li><strong>Portabilidad de datos</strong> — recibir tus datos en un formato estructurado y legible por máquina.</li>
+                    </ul>
+                    <p>Para ejercer cualquiera de estos derechos, escríbenos al correo indicado en la Sección 10. Responderemos en un plazo de 30 días.</p>
+                </article>
+
+                <!-- 8. Cookies -->
+                <article class="privacy-card" id="s8">
+                    <h2><span class="section-number">08</span>Cookies</h2>
+                    <p>
+                        Nuestro sitio web puede utilizar cookies y tecnologías de seguimiento similares para comprender cómo interactúan los visitantes con nuestro contenido. Esto incluye:
+                    </p>
+                    <ul>
+                        <li><strong>Cookies de sesión</strong> — se eliminan cuando cierras tu navegador.</li>
+                        <li><strong>Cookies de analítica</strong> — persistentes, utilizadas para medir patrones de tráfico de forma agregada y anónima.</li>
+                    </ul>
+                    <p>
+                        Puedes controlar las preferencias de cookies a través de la configuración de tu navegador. Desactivar las cookies puede afectar ciertas funciones de nuestro sitio.
+                    </p>
+                </article>
+
+                <!-- 9. Cambios -->
+                <article class="privacy-card" id="s9">
+                    <h2><span class="section-number">09</span>Cambios a esta política</h2>
+                    <p>
+                        Podemos actualizar esta Política de Privacidad ocasionalmente para reflejar cambios en nuestras prácticas o en la legislación aplicable. Cuando realicemos cambios materiales, actualizaremos la fecha de "Última actualización" en la parte superior de esta página y, cuando corresponda, notificaremos a los suscriptores por correo electrónico.
+                    </p>
+                    <p>
+                        El uso continuo de nuestra plataforma después de cualquier cambio constituye la aceptación de la política actualizada.
+                    </p>
+                </article>
+
+                <!-- 10. Contacto -->
+                <article class="privacy-card" id="s10">
+                    <h2><span class="section-number">10</span>Contáctanos</h2>
+                    <p>Si tienes preguntas, comentarios o solicitudes relacionadas con esta Política de Privacidad o con tus datos personales, no dudes en contactarnos:</p>
+                    <div class="privacy-contact-grid">
+                        <div class="privacy-contact-item">
+                            <span class="contact-label">🏢 Marca</span>
+                            <span class="contact-value">BeeByte / Adentro de la Colmena</span>
+                        </div>
+                        <div class="privacy-contact-item">
+                            <span class="contact-label">📍 Ubicación</span>
+                            <span class="contact-value">Monterrey, Nuevo León, México</span>
+                        </div>
+                        <div class="privacy-contact-item">
+                            <span class="contact-label">✉️ Email</span>
+                            <span class="contact-value"><a href="mailto:privacy@beebytes.qzz.io">privacy@beebytes.qzz.io</a></span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Footer de la sección -->
+                <div class="privacy-page-footer">
+                    <p>© 2025 Adentro de la Colmena · BeeByte · beebytes.qzz.io<br>Esta política fue revisada por última vez el 16 de mayo de 2025.</p>
+                    <a href="index.html" class="back-to-home">🐝 Regresar al inicio</a>
+                </div>
+
+            </div><!-- /.privacy-content -->
+        </div><!-- /.privacy-layout -->
+    </main>
+
+    <!-- ===== Footer (idéntico al sitio) ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="bee-icon">🐝</span>
+                        <h3>Adentro de la Colmena</h3>
+                    </div>
+                    <p class="footer-tagline">
+                        Explorando tecnología, innovación y comunidad
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Podcast</h4>
+                        <ul>
+                            <li><a href="index.html#episodios">Episodios</a></li>
+                            <li><a href="index.html#hosts">Hosts</a></li>
+                            <li><a href="index.html#suscribirse">Suscribirse</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4>Plataformas</h4>
+                        <ul>
+                            <li><a href="https://www.youtube.com/@BEEBYTES-u4v" target="_blank">YouTube</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Adentro de la Colmena. Todos los derechos reservados.</p>
+                <div class="footer-bottom-links">
+                    <a href="privacidad.html">Privacidad</a>
+                    <a href="#">Términos</a>
+                    <a href="#">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                mobileMenuToggle.classList.toggle('active');
+            });
+        }
+
+        // Header scroll shadow
+        const header = document.querySelector('.header');
+        window.addEventListener('scroll', () => {
+            header.style.boxShadow = window.pageYOffset > 100
+                ? '0 4px 12px rgba(0,0,0,0.15)'
+                : '0 2px 8px rgba(0,0,0,0.1)';
+        });
+
+        // Active TOC link on scroll
+        const sections = document.querySelectorAll('.privacy-card[id]');
+        const tocLinks = document.querySelectorAll('.privacy-toc a');
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    tocLinks.forEach(link => link.classList.remove('active'));
+                    const active = document.querySelector(`.privacy-toc a[href="#${entry.target.id}"]`);
+                    if (active) active.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-80px 0px -60% 0px', threshold: 0 });
+
+        sections.forEach(s => sectionObserver.observe(s));
+
+        // Smooth scroll for TOC links
+        tocLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = target.getBoundingClientRect().top + window.pageYOffset - 100;
+                    window.scrollTo({ top: offset, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Fade-in on load
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.4s ease';
+            setTimeout(() => { document.body.style.opacity = '1'; }, 80);
+        });
+
+        // Mobile menu CSS injection (same as main site)
+        const style = document.createElement('style');
+        style.textContent = `
+            .nav-menu.active {
+                display: flex !important; flex-direction: column;
+                position: absolute; top: 100%; left: 0; right: 0;
+                background-color: white; padding: 1rem;
+                box-shadow: 0 4px 12px rgba(0,0,0,.1); animation: slideDown .3s ease;
+            }
+            @keyframes slideDown {
+                from { opacity:0; transform:translateY(-10px); }
+                to   { opacity:1; transform:translateY(0); }
+            }
+            .mobile-menu-toggle.active span:nth-child(1) { transform:rotate(45deg) translate(5px,5px); }
+            .mobile-menu-toggle.active span:nth-child(2) { opacity:0; }
+            .mobile-menu-toggle.active span:nth-child(3) { transform:rotate(-45deg) translate(7px,-6px); }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
